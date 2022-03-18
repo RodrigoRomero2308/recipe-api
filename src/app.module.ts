@@ -12,6 +12,8 @@ import { UserModule } from './user/user.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
+      playground:
+        process.env.GRAPHQL_PLAYGROUND?.toUpperCase() === 'TRUE' || false,
     }),
     RecipeModule,
     PrismaModule,
